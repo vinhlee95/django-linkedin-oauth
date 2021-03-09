@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django'
+    'social_django',
+    'linkedin_oauth'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,10 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.linkedin.LinkedinOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = os.getenv('LINKEDIN_OAUTH_KEY', default="")
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.getenv('LINKEDIN_OAUTH_SECRET', default="")
+
+# Login redirect
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home/'
+SOCIAL_AUTH_LOGIN_URL = '/'

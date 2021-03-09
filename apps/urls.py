@@ -14,8 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from linkedin_oauth.views import login, home, logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('social_django.urls', namespace='social')),
+    path('login/', login),
+    path('home/', home),
+    path('logout/', logout)
 ]
