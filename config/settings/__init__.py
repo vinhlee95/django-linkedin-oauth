@@ -139,13 +139,13 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = os.getenv('LINKEDIN_OAUTH_KEY', default="")
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.getenv('LINKEDIN_OAUTH_SECRET', default="")
-SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_liteprofile', 'r_emailaddress']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['firstName', 'lastName', 'profilePicture']
 SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
     ('id', 'id'),
-    ('formattedName', 'name'),
-    ('emailAddress', 'email_address'),
-    ('pictureUrl', 'picture_url'),
-    ('publicProfileUrl', 'profile_url'),
+    ('firstName', 'firstName'),
+    ('lastName', 'lastName'),
+    ('profilePicture', 'profilePicture'),
 ]
 
 # Login redirect
